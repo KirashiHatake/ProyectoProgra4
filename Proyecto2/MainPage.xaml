@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto2.MainPage">
+
+    <StackLayout>
+        <Label Text="Registro de Empleados"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+
+        <Entry x:Name="txtIdEmpleado" IsVisible="False"/>
+        <Entry x:Name="txtnombres" Placeholder="Nombres" />
+        <Entry x:Name="txtapellidos" Placeholder="Apellidos"/>
+        <Entry x:Name="txtedad" Placeholder="Edad" Keyboard="Numeric"/>
+        <Entry x:Name="txtsexo" Placeholder="Genero: Ingresar solo una leta (M O F) "/>
+        <Entry x:Name="txtdireccion" Placeholder="Direccion"/>
+        <Entry x:Name="txttelefono" Placeholder="Telefono" Keyboard="Numeric"/>
+        <StackLayout Orientation="Horizontal">
+        <Button x:Name="btnregistrar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" Margin="0,10,0,10" CornerRadius="10" Text="Registrar" Clicked="btnregistrar_Clicked"/>
+         <Button x:Name="btnactualizar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" Margin="05,10,0,10" CornerRadius="10" Text="Actualizar" Clicked="btnactualizar_Clicked" IsVisible="False"/>
+         <Button x:Name="btneliminar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" Margin="0,10,0,10" CornerRadius="10" Text="Eliminar" Clicked="btneliminar_Clicked" IsVisible="False"/>
+         <Button x:Name="btncancelar" BackgroundColor="Black" BorderColor="White" BorderWidth="1" Margin="0,10,0,10" CornerRadius="10" Text="Limpiar" Clicked="btncancelar_Clicked" IsVisible="False"/>
+         <Button x:Name="btnlist" BackgroundColor="Black" BorderColor="White" BorderWidth="1" Margin="0,8,0,10" CornerRadius="10" Text="Lista" Clicked="btnlist_Clicked" IsVisible="true"/>
+        </StackLayout>
+        
+
+        <ListView x:Name="listempleados" ItemSelected="listempleados_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding IdEmpleado}" Grid.Row="0" Grid.Column="0" TextColor="Green"/>
+                            <Label Text="{Binding Nombres}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextColor="Gray"/>
+                            <Label Text="{Binding Apellidos}" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" TextColor="Gray"/>
+                            <Label Text="{Binding Edad}" Grid.Row="0" Grid.Column="5" TextColor="Gray"/>
+                            <Label Text="{Binding Sexo}" Grid.Row="0" Grid.Column="6" TextColor="Gray"/>
+                            <Label Text="{Binding Direccion}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" TextColor="Gray"/>
+                            <Label Text="{Binding Telefono}" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" TextColor="Gray"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+    </StackLayout>
+
+</ContentPage>
